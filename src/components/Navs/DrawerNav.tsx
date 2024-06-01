@@ -143,7 +143,6 @@ export default function DrawerNav(props: any) {
                 <ColorModeSwitcher
                   w={"100%"}
                   h={"50px"}
-                  fontSize={20}
                   className="btn-solid"
                   ml={"auto"}
                 />
