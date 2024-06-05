@@ -1,5 +1,6 @@
-import { Center, Heading } from "@chakra-ui/react";
+import { Button, Heading, VStack } from "@chakra-ui/react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import PageContainer from "../components/PageContainer";
 import TopNav from "../components/TopNav";
 import useTrigger from "../global/useTrigger";
@@ -23,9 +24,17 @@ export default function LandingPage() {
     <PageContainer>
       <TopNav />
 
-      <Center flex={1}>
+      <VStack flex={1} justify={"center"} gap={6}>
         <Heading>Template by Sulenq</Heading>
-      </Center>
+        <Button
+          as={Link}
+          to={"/contact"}
+          className="btn-ap clicky"
+          colorScheme="ap"
+        >
+          Contact
+        </Button>
+      </VStack>
     </PageContainer>
   );
 }
