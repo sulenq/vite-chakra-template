@@ -203,7 +203,7 @@ export default function DrawerNav({ ...props }: Props) {
                       p={4}
                       px={6}
                       pl={7}
-                      borderRadius={8}
+                      borderRadius={"full"}
                       bg={"var(--divider)"}
                       to={nav.link}
                       justify={"space-between"}
