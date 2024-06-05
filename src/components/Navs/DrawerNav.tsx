@@ -197,7 +197,7 @@ export default function DrawerNav({ ...props }: Props) {
                 onClick={(e) => e.stopPropagation()}
               >
                 {navs[lang].map((nav, i) => (
-                  <Box className="initDrawerContent" key={i}>
+                  <Box className="initDrawerCont-ent" key={i}>
                     <HStack
                       as={Link}
                       p={4}
