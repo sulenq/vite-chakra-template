@@ -54,7 +54,7 @@ export default function TopNav(props: any) {
       left={0}
       // p={2}
       transform={scrollDirection === "up" ? "" : "translateY(-80px)"}
-      bg={useColorModeValue("white", "blackAlpha.800")}
+      bg={useColorModeValue("white", "#191919cc")}
       transition={"200ms"}
       {...props}
     >

@@ -2,7 +2,7 @@ import { extendTheme } from "@chakra-ui/react";
 
 export const globalTheme = extendTheme({
   config: {
-    initialColorMode: "dark",
+    initialColorMode: "light",
   },
   colors: {
     p: {
@@ -56,12 +56,12 @@ export const globalTheme = extendTheme({
     bnw: {
       200: "white",
       300: "white",
-      500: "#000000",
-      600: "#000000",
+      500: "#191919",
+      600: "#191919",
     },
     wnb: {
-      200: "#000000",
-      300: "#000000",
+      200: "#191919",
+      300: "#191919",
       500: "white",
       600: "white",
     },
@@ -70,13 +70,13 @@ export const globalTheme = extendTheme({
     w: "white",
     wt: "#eeeeee",
     error: "#E53E3E",
-    dark: "#111",
+    dark: "#191919",
   },
 
   styles: {
     global: (props: any) => ({
       body: {
-        bg: props.colorMode === "dark" ? "black" : "white",
+        bg: props.colorMode === "dark" ? "dark" : "white",
         color: props.colorMode === "dark" ? "wt" : "black",
       },
     }),
@@ -171,7 +171,7 @@ export const globalTheme = extendTheme({
     Button: {
       baseStyle: () => ({
         fontWeight: 600,
-        borderRadius: 8,
+        borderRadius: "full",
       }),
       variants: {
         solid: {
