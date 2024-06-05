@@ -8,7 +8,6 @@ import {
 import landingData from "../constant/landingData";
 import { ColorModeSwitcher } from "../ColorModeSwitcher";
 import useScreenWidth from "../hooks/useScreenWidth";
-
 import LangSwitcher from "./LangSwitcher";
 import { getLang } from "../lib/lang";
 import NavDrawer from "./Navs/DrawerNav";

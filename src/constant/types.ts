@@ -2,13 +2,14 @@ export type LanguageOptions = "id" | "en";
 
 export type ServiceData = {
   icon: any;
+  iconVector: any;
   title: string;
-  narative: string;
+  narrative: string;
   image: string;
   detailLink: string;
   benefit: {
     title: string;
-    items: { title: string; narative: string }[];
+    items: { title: string; narrative: string }[];
   };
 };
 
@@ -16,8 +17,18 @@ export type ServicesData = {
   [lang in LanguageOptions]: ServiceData[];
 };
 
+export type ServicesData2 = {
+  [lang in LanguageOptions]: {
+    tagline: string;
+    narrative: string;
+    items: ServiceData[];
+  };
+};
+
 export type WorkData = {
+  id: number;
   category: number;
+  subTitle: string;
   clientLogo: string;
   clientName: string;
   title: string;
@@ -33,18 +44,11 @@ export type WorksData = {
   [lang in LanguageOptions]: WorkData[];
 };
 
-export type DesignWorkData = {
-  title: string;
-  imageUrl: string;
-  url: string;
-};
-export type DesignWorksData = DesignWorkData[];
-
 export type AboutData = {
   [lang in LanguageOptions]: {
     intro: {
       title: string;
-      narative: string;
+      narrative: string[];
     };
     members: {
       title: string;

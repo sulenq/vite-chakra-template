@@ -1,190 +1,35 @@
-const certificateItems = [
-  {
-    name: "Certification Shceme of web Developer",
-    giver: "Dian Nuswantoro University Professional Certification Institution",
-    link: "https://drive.google.com/drive/folders/1n8UMxHJSj_fBofO0B9alUO29IUJkXdMg",
-  },
-  {
-    name: "English Proficiency Assesment ",
-    giver: "Center for Foreign Language Training",
-    link: "https://drive.google.com/drive/folders/1CaQfgm6tSpG_48qWyuKkuQLiYUyhepGC",
-  },
-  {
-    name: "CSS HackerRank",
-    giver: "HackerRank",
-    link: "https://drive.google.com/drive/folders/14-1PRW70iNDT9jF_QxWtuTdphcof0yq4",
-  },
-  {
-    name: "Javascript (Basic) HackerRank",
-    giver: "HackerRank",
-    link: "https://drive.google.com/drive/folders/1zkPBn9U-1hWkyy9tw_6DqG6mOYaMFb3I",
-  },
-  {
-    name: "Javascript (Intermediate) HackerRank",
-    giver: "HackerRank",
-    link: "https://www.hackerrank.com/certificates/66c5d80374b2",
-  },
-  {
-    name: "React (Basic) HackerRank",
-    giver: "HackerRank",
-    link: "https://drive.google.com/drive/folders/1lITfEL5JsTzJ62tiuxVCezAW0Wwp0ZCv",
-  },
-];
+import { AboutData } from "./types";
 
-const aboutData = {
+const aboutData: AboutData = {
   id: {
-    background: {
-      title: "Latar Belakang",
-      naratives: [
-        "Saya menyukai komputer sejak SD, setelah lulus SMA saya bersekolah di Udinus yang menurut orang kampus komputer terbaik se-Jawa Tengah. Saya menyukai seni dan visual yang indah, makanya saya suka menggambar dan mendesain. .Karena saya mendesain, saya lebih memilih menjadi frontend developer menggunakan React. Saya belajar React melalui program Studi Mandiri (MSIB) angkatan 3 pada tanggal 8 Agustus 2022 - 28 Desember 2022.",
-        "Saya lebih suka belajar mandiri, menyelesaikan masalah sendiri, menganalisis bug dan error sendiri hingga saat ini. Saya bisa membuat desain menjadi kode frontend yang sesuai dengan desain dalam waktu yang relatif singkat dan juga memperhatikan komponen yang bisa digunakan kembali.",
-        "Saya ingin berkontribusi, ingin membangun sesuatu sekecil apapun untuk memajukan peradaban manusia. Oleh karena itu saya mempunyai impian agar manusia saling memahami dan ikhlas.",
+    intro: {
+      title: "Siapa Kami?",
+      narrative: [
+        "Dengan menggabungkan keahlian dan dedikasi, kami membentuk tim yang terdiri dari para ahli UI/UX designer, frontend React developers, dan backend Laravel developers.",
+        "Perkenalkan, kami adalah sebuah software house yang berkomitmen untuk memberikan solusi digital terbaik bagi klien-klien kami. Setiap individu dalam tim kami tidak hanya memiliki keahlian teknis yang mendalam dalam bidangnya masing-masing, tetapi juga memiliki minat yang kuat untuk menghasilkan karya dengan kualitas tertinggi.",
+        "Kami mengerti bahwa setiap proyek memiliki kebutuhan yang unik, itulah sebabnya kami menawarkan layanan yang sangat fleksibel dalam pengerjaan proyek.",
+        "Kami bangga dengan reputasi kami dalam memberikan hasil kerja yang memikat dan berkualitas maksimal. Dengan menggunakan teknologi terkini dan praktik terbaik dalam industri, kami memastikan bahwa setiap produk yang kami hasilkan tidak hanya memenuhi standar tinggi, tetapi juga memberikan nilai tambah yang signifikan bagi bisnis dan pengguna akhir.",
+        "Kami percaya bahwa kolaborasi yang kuat antara tim kami dan klien adalah kunci keberhasilan setiap proyek. Oleh karena itu, kami selalu berusaha untuk memahami visi dan tujuan klien kami secara mendalam, serta berkomunikasi secara terbuka dan transparan sepanjang proses pengerjaan proyek.",
+        "Dengan pengalaman dan kompetensi kami yang luas, bersama dengan komitmen kami untuk memberikan layanan terbaik, Distro Studio siap menjadi mitra digital yang dapat diandalkan untuk memenuhi semua kebutuhan teknologi informasi Anda.",
       ],
     },
-    skills: {
-      title: "Kemampuan",
-    },
-    education: {
-      title: "Pendidikan",
-      items: [
-        {
-          name: "Universitas Dian Nuswantoro",
-          year: "Agustus 2019 - Juni 2023",
-          field: "Teknik Informatika - IPK 3.52 dari 4.00",
-          narative: "Mengambil spesialisasi Rekayasa Perangkat Lunak",
-        },
-        {
-          name: "SMA Negeri 4 Semarang",
-          year: "Agustus 2016 - Juli 2019",
-          field: "Matematika dan Ilmu Pengetahuan Alam",
-          narative: "Mengikuti ekstrakurikuler Pengurus Rohis",
-        },
-      ],
-    },
-    experience: {
-      title: "Pengalaman Kerja",
-      items: [
-        {
-          title: "Web Developer",
-          company: "Business Watch Indonesia",
-          location: "Semarang, Indonesia",
-          periode: "Desember 2022 -  sekarang",
-          jobs: [
-            "Memperbaiki bug dan menambah fitur pagination pada web admin lama yang dikembangkan menggunakan React, Redux dan Code Igniter 3. ",
-            "Mengembangkan web dengan React, Typescript dan Laravel yang meliputi: Landing page, Blog, Online Course, Webapp admin untuk mengelola web tersebut. ",
-          ],
-        },
-        {
-          title: "Frontend Developer",
-          company: "Distro Studio",
-          location: "Semarang, Indonesia",
-          periode: "Oktober 2022 -  sekarang",
-          jobs: [
-            "Mengerjakan proyek dari client Distro Studio",
-            "Membuat frontend (membuat tampilan dan implementasi API) menggunakan React dari desain yang dibuat oleh rekan tim",
-          ],
-        },
-        {
-          title: "Graphic Designer",
-          company: "Humas Universitas Dian Nuswantoro",
-          location: "Semarang, Indonesia",
-          periode: "Mei 2022 -  April 2023",
-          jobs: [
-            "Membuat aset vector dengan gaya yang unik menggunakan CorelDRAW",
-            "Membuat desain untuk akun instagram resmi Universitas Dian Nuswantoro",
-            "Saya membuat desain sesuai dengan brief yang diberikan dari copywriter",
-          ],
-        },
-      ],
-    },
-    certificate: {
-      title: "Sertifikat",
-      items: certificateItems,
-    },
-    interests: {
-      title: "Hal yang Disukai",
-    },
-    contact: {
-      title: "Kontak",
+    members: {
+      title: "Tim Ahli Kami",
     },
   },
-
   en: {
-    title: "Background",
-    background: {
-      title: "Background",
-      naratives: [
-        "I have loved computers since I was in elementary school, after graduating from high school, I studied at Udinus, which people say is the best computer campus in Central Java. I love art and beautiful visual things, so I love to draw and design. Because I design, I prefers to be a frontend developer using React. I learned React through the Studi Independen program (MSIB) batch 3 on August 8 2022 - December 28 2022.",
-        "I prefers self-study, solving problems myself, analyzing bugs and errors myself until now. I able to trace the design to code that conforms to the design in a relatively short time and also pay attention to the components that can be reused.",
-        "I wants to contribute, wants to build something no matter how small it is advance human civilization. Therefore I have a dream for humans to understand each other and be sincere.",
+    intro: {
+      title: "Who We Are?",
+      narrative: [
+        "We are a software house committed to providing the best digital solutions for our clients. By combining expertise and dedication, we assemble a team consisting of UI/UX designers, frontend React developers, and backend Laravel developers. Each individual in our team not only possesses deep technical expertise in their respective fields but also has a strong passion for delivering top-quality work.",
+        "We understand that every project has unique requirements, which is why we offer highly flexible services in project execution. With an approach focused on client needs and objectives, we strive to deliver solutions that meet and exceed their expectations.",
+        "We take pride in our reputation for delivering captivating and top-quality work. By leveraging the latest technology and best practices in the industry, we ensure that every product we produce not only meets high standards but also provides significant added value to businesses and end-users.",
+        "We believe that strong collaboration between our team and clients is the key to the success of every project. Therefore, we always strive to deeply understand our clients' visions and goals, and communicate openly and transparently throughout the project execution process.",
+        "With our extensive experience and expertise, coupled with our commitment to providing the best services, Distro Studio is ready to be a reliable digital partner to fulfill all your information technology needs.",
       ],
     },
-    skills: {
-      title: "Skills",
-    },
-    education: {
-      title: "Education",
-      items: [
-        {
-          name: "Universitas Dian Nuswantoro",
-          year: "Agustus 2019 - Juni 2023",
-          field: "Informatics Engineering - GPA 3.52 of 4.00",
-          narative: "Specialized in Software Engineering",
-        },
-        {
-          name: "SMA Negeri 4 Semarang",
-          year: "Agustus 2016 - Juli 2019",
-          field: "Mathematics and Natural Science",
-          narative:
-            "Participate in Rohis Management extracurricular activities",
-        },
-      ],
-    },
-    experience: {
-      title: "Work Experience",
-      items: [
-        {
-          title: "Web Developer",
-          company: "Business Watch Indonesia",
-          location: "Semarang, Indonesia",
-          periode: "December 2022 - Present",
-          jobs: [
-            "Fixed bugs and added pagination feature to an old admin web developed using React, Redux, and Code Igniter 3.",
-            "Developed web applications using React, Typescript, and Laravel including: Landing page, Blog, Online Course, Webapp admin to manage the website.",
-          ],
-        },
-        {
-          title: "Frontend Developer",
-          company: "Distro Studio",
-          location: "Semarang, Indonesia",
-          periode: "October 2022 - Present",
-          jobs: [
-            "Worked on projects from Distro Studio clients.",
-            "Developed frontends (UI design and API implementation) using React from designs provided by team members.",
-          ],
-        },
-        {
-          title: "Graphic Designer",
-          company: "Public Relations, Dian Nuswantoro University",
-          location: "Semarang, Indonesia",
-          periode: "May 2022 - April 2023",
-          jobs: [
-            "Created vector assets with unique styles using CorelDRAW.",
-            "Designed content for Dian Nuswantoro University's official Instagram account.",
-            "Designed according to briefs provided by copywriters.",
-          ],
-        },
-      ],
-    },
-    certificate: {
-      title: "Certificate",
-      items: certificateItems,
-    },
-    interests: {
-      title: "Interests",
-    },
-    contact: {
-      title: "Contact",
+    members: {
+      title: "Our Expert Team",
     },
   },
 };
