@@ -3,6 +3,7 @@ import {
   Button,
   HStack,
   Image,
+  Text,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
@@ -13,10 +14,12 @@ import useScreenWidth from "../hooks/useScreenWidth";
 import { getLang } from "../lib/lang";
 import LangSwitcher from "./LangSwitcher";
 import NavDrawer from "./Navs/DrawerNav";
+import useTrigger from "../global/useTrigger";
 
 export default function TopNav(props: any) {
   const sw = useScreenWidth();
   const lang = getLang();
+  const { trigger } = useTrigger();
 
   const [scrollDirection, setScrollDirection] = useState<"up" | "down">("up");
   const [scrollYPos, setScrollYPos] = useState<number>(window.scrollY);
@@ -55,6 +58,7 @@ export default function TopNav(props: any) {
       transition={"200ms"}
       {...props}
     >
+      <Text display={"none"}>{trigger}</Text>
       <HStack
         justify={"space-between"}
         py={2}
