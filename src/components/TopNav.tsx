@@ -59,6 +59,7 @@ export default function TopNav(props: any) {
       {...props}
     >
       <Text display={"none"}>{trigger}</Text>
+
       <HStack
         justify={"space-between"}
         py={2}
