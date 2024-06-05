@@ -1,9 +1,13 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
-import Landing from "./pages/Landing";
+import LandingPage from "./pages/LandingPage";
 import MissingPage from "./pages/MissingPage";
 import { globalTheme } from "./theme/globalTheme";
+import ServicePage from "./pages/ServicesPage";
+import PortfolioPage from "./pages/PortfolioPage";
+import AboutPage from "./pages/AboutPage";
+import FaqsPage from "./pages/FaqsPage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -30,7 +34,11 @@ const App = () => {
         <ScrollToTop />
 
         <Routes>
-          <Route path="/" element={<Landing />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/services" element={<ServicePage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/faqs" element={<FaqsPage />} />
 
           <Route path="*" element={<MissingPage />} />
         </Routes>

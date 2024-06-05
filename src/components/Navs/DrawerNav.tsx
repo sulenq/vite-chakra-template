@@ -11,7 +11,6 @@ import {
   useDisclosure,
   VStack,
 } from "@chakra-ui/react";
-import landingData from "../../constant/landingData";
 
 import { useGSAP } from "@gsap/react";
 import { RiArrowRightUpLine, RiCloseLine, RiMenuLine } from "@remixicon/react";
@@ -20,6 +19,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ColorModeSwitcher } from "../../ColorModeSwitcher";
 import { useWnBColor } from "../../constant/colors";
+import navs from "../../constant/navs";
+import sosmeds from "../../constant/sosmeds";
 import useBackOnClose from "../../hooks/useBackOnClose";
 import formatDate from "../../lib/formatDate";
 import { getLang } from "../../lib/lang";
@@ -195,7 +196,7 @@ export default function DrawerNav({ ...props }: Props) {
                 gap={3}
                 onClick={(e) => e.stopPropagation()}
               >
-                {landingData.landingNav[lang].map((nav, i) => (
+                {navs[lang].map((nav, i) => (
                   <Box className="initDrawerContent" key={i}>
                     <HStack
                       as={Link}
@@ -231,7 +232,7 @@ export default function DrawerNav({ ...props }: Props) {
                 gap={3}
                 onClick={(e) => e.stopPropagation()}
               >
-                {landingData.sosmeds.map((sosmed, i) => (
+                {sosmeds.map((sosmed, i) => (
                   <IconButton
                     w={"100%"}
                     h={"50px"}

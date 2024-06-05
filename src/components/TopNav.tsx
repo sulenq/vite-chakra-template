@@ -5,14 +5,14 @@ import {
   Image,
   useColorModeValue,
 } from "@chakra-ui/react";
-import landingData from "../constant/landingData";
-import { ColorModeSwitcher } from "../ColorModeSwitcher";
-import useScreenWidth from "../hooks/useScreenWidth";
-import LangSwitcher from "./LangSwitcher";
-import { getLang } from "../lib/lang";
-import NavDrawer from "./Navs/DrawerNav";
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { ColorModeSwitcher } from "../ColorModeSwitcher";
+import navs from "../constant/navs";
+import useScreenWidth from "../hooks/useScreenWidth";
+import { getLang } from "../lib/lang";
+import LangSwitcher from "./LangSwitcher";
+import NavDrawer from "./Navs/DrawerNav";
 
 export default function TopNav(props: any) {
   const sw = useScreenWidth();
@@ -78,22 +78,26 @@ export default function TopNav(props: any) {
 
         {sw > 850 ? (
           <HStack gap={0}>
-            {landingData.landingNav[lang]?.map((nav, i) => (
-              <Button
-                as={Link}
-                to={nav.link}
-                key={i}
-                flexShrink={0}
-                fontWeight={600}
-                className="btn-clear"
-                _hover={{ color: "p.500", transform: "translateY(-2px)" }}
-                transition={"200ms"}
-                px={3}
-                color={props?.color || "current"}
-              >
-                {nav.name}
-              </Button>
-            ))}
+            {navs[lang]?.map((nav, i) => {
+              return (
+                i > 0 && (
+                  <Button
+                    as={Link}
+                    to={nav.link}
+                    key={i}
+                    flexShrink={0}
+                    fontWeight={600}
+                    className="btn-clear"
+                    _hover={{ color: "p.500", transform: "translateY(-2px)" }}
+                    transition={"200ms"}
+                    px={3}
+                    color={props?.color || "current"}
+                  >
+                    {nav.name}
+                  </Button>
+                )
+              );
+            })}
           </HStack>
         ) : (
           ""
@@ -104,7 +108,12 @@ export default function TopNav(props: any) {
 
           <LangSwitcher color={props?.color || "current"} />
 
-          {sw <= 850 && <NavDrawer color={props?.color || "current"} />}
+          {sw <= 850 && (
+            <NavDrawer
+              aria-label="Drawer Navs"
+              color={props?.color || "current"}
+            />
+          )}
         </HStack>
       </HStack>
     </Box>
