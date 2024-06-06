@@ -267,7 +267,7 @@ export default function DrawerNav({ ...props }: Props) {
                 opacity={0.5}
                 className="initDrawerContent"
               >
-                2023 © Distro Studio. All right reserved.
+                Copyright
               </Text>
             </VStack>
           </VStack>
