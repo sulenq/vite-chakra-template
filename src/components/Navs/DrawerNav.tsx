@@ -92,6 +92,7 @@ export default function DrawerNav({ ...props }: Props) {
 
   // SX
   const color = useColorModeValue("black", "white");
+  const bg = useWnBColor();
 
   return (
     <>
@@ -111,7 +112,7 @@ export default function DrawerNav({ ...props }: Props) {
           w={"100vw"}
           h={"100vh"}
           align={"stretch"}
-          bg={useWnBColor()}
+          bg={bg}
           position={"fixed"}
           left={0}
           top={0}
@@ -131,7 +132,6 @@ export default function DrawerNav({ ...props }: Props) {
               px={8}
               align={"stretch"}
               gap={3}
-              // mb={"50px"}
             >
               <VStack
                 className="initDrawerContent"
@@ -197,7 +197,7 @@ export default function DrawerNav({ ...props }: Props) {
                 onClick={(e) => e.stopPropagation()}
               >
                 {navs[lang].map((nav, i) => (
-                  <Box className="initDrawerCont-ent" key={i}>
+                  <Box className="initDrawerContent" key={i}>
                     <HStack
                       as={Link}
                       p={4}
