@@ -52,9 +52,9 @@ export default function TopNav(props: any) {
       position={"sticky"}
       top={"-1px"}
       left={0}
-      // p={2}
       transform={scrollDirection === "up" ? "" : "translateY(-80px)"}
       bg={useColorModeValue("white", "#191919cc")}
+      backdropFilter={"blur(5px)"}
       transition={"200ms"}
       {...props}
     >
@@ -67,7 +67,6 @@ export default function TopNav(props: any) {
         w={"100%"}
         maxW={"1280px"}
         mx={"auto"}
-        backdropFilter={"blur(5px)"}
         // borderRadius={12}
       >
         <HStack flexShrink={0} w={[null, null, "200px"]}>
