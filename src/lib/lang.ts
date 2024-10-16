@@ -1,4 +1,4 @@
-import { LanguageOptions } from "../constant/types";
+import { LanguageOptions } from "../constant/interfaces";
 
 const setLang = (newLang: LanguageOptions) => {
   localStorage.setItem("lang", newLang);

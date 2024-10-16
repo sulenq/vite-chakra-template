@@ -1,4 +1,5 @@
 import { VStack } from "@chakra-ui/react";
+import TopNav from "./TopNav";
 
 export default function PageContainer(props: any) {
   return (
@@ -10,6 +11,7 @@ export default function PageContainer(props: any) {
       overflowX={"clip"}
       {...props}
     >
+      <TopNav />
       {props.children}
     </VStack>
   );

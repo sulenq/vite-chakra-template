@@ -1,48 +1,41 @@
-const navs = {
-  id: [
-    {
-      name: "Beranda",
-      link: "/",
+import { Interface__Nav } from "./interfaces";
+
+const navs: Interface__Nav[] = [
+  {
+    label: {
+      id: "Beranda",
+      en: "Home",
     },
-    {
-      name: "Layanan",
-      link: "/services",
+    link: "/",
+  },
+  {
+    label: {
+      id: "Layanan",
+      en: "Services",
     },
-    {
-      name: "Portofolio",
-      link: "/portfolio",
+    link: "/services",
+  },
+  {
+    label: {
+      id: "Portofolio",
+      en: "Portfolio",
     },
-    {
-      name: "Tentang Kami",
-      link: "/about",
+    link: "/portfolio",
+  },
+  {
+    label: {
+      id: "Tentang Kami",
+      en: "About",
     },
-    {
-      name: "FAQs",
-      link: "/faqs",
+    link: "/about",
+  },
+  {
+    label: {
+      id: "FAQs",
+      en: "FAQs",
     },
-  ],
-  en: [
-    {
-      name: "Home",
-      link: "/",
-    },
-    {
-      name: "Services",
-      link: "/services",
-    },
-    {
-      name: "Portfolio",
-      link: "/portfolio",
-    },
-    {
-      name: "About Us",
-      link: "/about",
-    },
-    {
-      name: "FAQs",
-      link: "/faqs",
-    },
-  ],
-};
+    link: "/faqs",
+  },
+];
 
 export default navs;

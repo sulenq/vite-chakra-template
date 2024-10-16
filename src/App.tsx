@@ -1,46 +1,68 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import { useEffect } from "react";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import PageContainer from "./components/PageContainer";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
+import FaqsPage from "./pages/FaqsPage";
 import LandingPage from "./pages/LandingPage";
 import MissingPage from "./pages/MissingPage";
-import { globalTheme } from "./theme/globalTheme";
-import ServicePage from "./pages/ServicesPage";
 import PortfolioPage from "./pages/PortfolioPage";
-import AboutPage from "./pages/AboutPage";
-import FaqsPage from "./pages/FaqsPage";
-import ContactPage from "./pages/ContactPage";
-
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-}
+import ServicePage from "./pages/ServicesPage";
+import { globalTheme } from "./theme/globalTheme";
 
 const App = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-
-    if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "manual";
-    }
-  }, []);
-
   return (
     <ChakraProvider theme={globalTheme}>
       <BrowserRouter>
-        <ScrollToTop />
-
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/services" element={<ServicePage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/faqs" element={<FaqsPage />} />
-          <Route path="/contact" element={<ContactPage />} />
+          <Route
+            path="/"
+            element={
+              <PageContainer>
+                <LandingPage />
+              </PageContainer>
+            }
+          />
+          <Route
+            path="/services"
+            element={
+              <PageContainer>
+                <ServicePage />
+              </PageContainer>
+            }
+          />
+          <Route
+            path="/portfolio"
+            element={
+              <PageContainer>
+                <PortfolioPage />
+              </PageContainer>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <PageContainer>
+                <AboutPage />
+              </PageContainer>
+            }
+          />
+          <Route
+            path="/faqs"
+            element={
+              <PageContainer>
+                <FaqsPage />
+              </PageContainer>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <PageContainer>
+                <ContactPage />
+              </PageContainer>
+            }
+          />
 
           <Route path="*" element={<MissingPage />} />
         </Routes>

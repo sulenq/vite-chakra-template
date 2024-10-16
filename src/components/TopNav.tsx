@@ -82,7 +82,7 @@ export default function TopNav(props: any) {
 
         {sw > 850 ? (
           <HStack gap={0}>
-            {navs[lang]?.map((nav, i) => {
+            {navs?.map((nav, i) => {
               return (
                 i > 0 && (
                   <Button
@@ -97,7 +97,7 @@ export default function TopNav(props: any) {
                     px={3}
                     color={props?.color || "current"}
                   >
-                    {nav.name}
+                    {nav.label[lang]}
                   </Button>
                 )
               );

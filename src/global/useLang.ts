@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { LanguageOptions } from "../constant/types";
+import { LanguageOptions } from "../constant/interfaces";
 
 type State = {
   lang: LanguageOptions;
