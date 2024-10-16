@@ -1,8 +1,10 @@
-import { Button, Text, Tooltip } from "@chakra-ui/react";
-import { getLang, setLang as setLangLocal } from "../lib/lang";
+import { Button, ButtonProps, Tooltip } from "@chakra-ui/react";
 import useTrigger from "../global/useTrigger";
+import { getLang, setLang as setLangLocal } from "../lib/lang";
 
-export default function LangSwitcher(props: any) {
+interface Props extends ButtonProps {}
+
+export default function LangSwitcher({ ...props }: Props) {
   const lang = getLang();
   const { trigger, setTrigger } = useTrigger();
 
@@ -19,13 +21,12 @@ export default function LangSwitcher(props: any) {
   return (
     <Tooltip>
       <Button
-        {...props}
-        className={props.className || "btn"}
+        className={"btn"}
         onClick={onSwitchLang}
-        // w={"70px"}
         px={"4px !important"}
+        {...props}
       >
-        <Text>{lang === "en" ? "ID" : "EN"}</Text>
+        {lang === "en" ? "ID" : "EN"}
       </Button>
     </Tooltip>
   );

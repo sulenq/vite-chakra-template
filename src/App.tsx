@@ -8,6 +8,7 @@ import LandingPage from "./pages/LandingPage";
 import MissingPage from "./pages/MissingPage";
 import PortfolioPage from "./pages/PortfolioPage";
 import ServicePage from "./pages/ServicesPage";
+// @ts-ignore
 import { globalTheme } from "./theme/globalTheme";
 
 const App = () => {

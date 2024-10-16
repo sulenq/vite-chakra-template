@@ -12,7 +12,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { useRef, useState } from "react";
-import useBackOnClose from "../hooks/useBackOnClose";
+import useBackOnClose from "../hooks/useBackOnCloseOld";
 import backOnClose from "../lib/backOnClose";
 import { ArrowLeft, ArrowRight } from "@phosphor-icons/react";
 

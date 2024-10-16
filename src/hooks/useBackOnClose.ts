@@ -1,19 +1,37 @@
-import { useEffect, useCallback } from "react";
+import { useCallback, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
-const useBackOnClose = (isOpen: boolean, onClose: () => void) => {
+const useBackOnClose = (
+  id: string,
+  isOpen: boolean,
+  onOpen: () => void,
+  onClose: () => void
+) => {
+  const location = useLocation();
+
+  // handle onOpen, push history if needed
+  useEffect(() => {
+    const currentUrl = new URL(window.location.href);
+    const modalId = currentUrl.searchParams.get(id);
+
+    if (isOpen && !modalId) {
+      currentUrl.searchParams.set(id, "1");
+      window.history.pushState(null, "", currentUrl.toString());
+    }
+  }, [isOpen, id]);
+
   const handlePopState = useCallback(() => {
-    if (isOpen) {
+    const currentUrl = new URL(window.location.href);
+    const modalId = currentUrl.searchParams.get(id);
+
+    if (modalId) {
+      onOpen();
+    } else {
       onClose();
     }
-  }, [isOpen, onClose]);
+  }, [id, onOpen, onClose]);
 
-  useEffect(() => {
-    if (isOpen) {
-      // Push URL yang sama saat modal dibuka
-      window.history.pushState(null, "", window.location.href);
-    }
-  }, [isOpen]);
-
+  // handle trigger popstate (back)
   useEffect(() => {
     if (isOpen) {
       window.addEventListener("popstate", handlePopState);
@@ -24,7 +42,19 @@ const useBackOnClose = (isOpen: boolean, onClose: () => void) => {
         window.removeEventListener("popstate", handlePopState);
       }
     };
-  }, [isOpen, onClose, handlePopState]);
+  }, [isOpen, handlePopState]);
+
+  // handle initial onOpen with query parameter
+  useEffect(() => {
+    const currentUrl = new URL(window.location.href);
+    const modalId = currentUrl.searchParams.get(id);
+
+    if (modalId) {
+      onOpen();
+    } else {
+      onClose();
+    }
+  }, [location, id, onOpen, onClose]);
 };
 
 export default useBackOnClose;

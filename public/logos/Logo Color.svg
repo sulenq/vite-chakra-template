@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="0.712051in" height="1.13054in" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 129.68 205.89"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil2 {fill:url(#id0);fill-rule:nonzero}
+    .fil1 {fill:url(#id1);fill-rule:nonzero}
+    .fil0 {fill:url(#id2);fill-rule:nonzero}
+   ]]>
+  </style>
+  <linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="13.77" y1="133.9" x2="6.88" y2="155.99">
+   <stop offset="0" style="stop-opacity:1; stop-color:#804E20"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#AF7A3A"/>
+  </linearGradient>
+  <linearGradient id="id1" gradientUnits="userSpaceOnUse" x1="77.79" y1="62.8" x2="71.6" y2="185.37">
+   <stop offset="0" style="stop-opacity:1; stop-color:#B4822C"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#E6AE3A"/>
+  </linearGradient>
+  <linearGradient id="id2" gradientUnits="userSpaceOnUse" x1="72.25" y1="11.37" x2="72.25" y2="118.39">
+   <stop offset="0" style="stop-opacity:1; stop-color:#E69332"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#8E5723"/>
+  </linearGradient>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_1246182543760">
+   <path class="fil0" d="M17.39 3.77c38.05,-16.9 104.92,26.56 104.92,59.33 0,32.76 -81.32,29.02 -97.97,64.48 -16.64,35.47 107.3,-28.07 77.96,-67.83 -29.36,-39.75 -122.96,-39.08 -84.91,-55.99z"/>
+   <path class="fil1" d="M15.35 53.37c43.71,-16.87 116.22,36.24 114.29,73.3 -1.94,37.06 -93.02,28.01 -113.8,67.16 -20.79,39.14 122.13,-25.42 91.54,-72.12 -30.6,-46.69 -135.75,-51.46 -92.03,-68.34z"/>
+   <path class="fil2" d="M22.18 144.82c0,6.14 -4.97,11.12 -11.09,11.12 -6.13,0 -11.09,-4.98 -11.09,-11.12 0,-6.14 4.97,-11.12 11.09,-11.12 6.13,0 11.09,4.98 11.09,11.12z"/>
+  </g>
+ </g>
+</svg>

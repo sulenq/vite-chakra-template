@@ -13,15 +13,15 @@ import {
 } from "@chakra-ui/react";
 
 import { useGSAP } from "@gsap/react";
-import { RiArrowRightUpLine, RiCloseLine, RiMenuLine } from "@remixicon/react";
+import { ArrowUpRight, List, X } from "@phosphor-icons/react";
 import gsap from "gsap";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ColorModeSwitcher } from "../../ColorModeSwitcher";
 import { useWnBColor } from "../../constant/colors";
 import navs from "../../constant/navs";
 import sosmeds from "../../constant/sosmeds";
-import useBackOnClose from "../../hooks/useBackOnClose";
+import useBackOnClose from "../../hooks/useBackOnCloseOld";
 import formatDate from "../../lib/formatDate";
 import { getLang } from "../../lib/lang";
 import LangSwitcher from "../LangSwitcher";
@@ -35,6 +35,7 @@ export default function DrawerNav({ ...props }: Props) {
     onClose();
     window.history.back();
   }
+  const menuContainerRef = useRef(null);
   const [closing, setClosing] = useState(false);
   const lang = getLang();
   const currentDate = new Date();
@@ -42,21 +43,28 @@ export default function DrawerNav({ ...props }: Props) {
     setClosing(true);
   };
 
+  // GSAP Animations
   useGSAP(
     () => {
       if (closing) {
-        gsap.to(".initDrawerContent", {
-          y: -100,
-          opacity: 0,
-          duration: 0.2,
-          stagger: {
-            each: 0.03,
-          },
-          onComplete: () => {
-            setClosing(false);
-            handleOnClose();
-          },
-        });
+        setTimeout(() => {
+          const elements = document.querySelectorAll(".initDrawerContent");
+          if (elements.length > 0) {
+            gsap.to(elements, {
+              y: -100,
+              opacity: 0,
+              duration: 0.2,
+              stagger: {
+                each: 0.03,
+              },
+              onComplete: () => {
+                setClosing(false);
+                handleOnClose();
+                window.history.back();
+              },
+            });
+          }
+        }, 0); // Small delay to ensure elements are rendered
       }
     },
     { dependencies: [closing] }
@@ -64,18 +72,23 @@ export default function DrawerNav({ ...props }: Props) {
 
   useGSAP(
     () => {
-      if (!closing) {
-        gsap.from(".initDrawerContent", {
-          y: -100,
-          opacity: 0,
-          duration: 0.2,
-          stagger: {
-            each: 0.03,
-          },
-        });
+      if (!closing && isOpen) {
+        setTimeout(() => {
+          const elements = document.querySelectorAll(".initDrawerContent");
+          if (elements.length > 0) {
+            gsap.from(elements, {
+              y: -100,
+              opacity: 0,
+              duration: 0.2,
+              stagger: {
+                each: 0.03,
+              },
+            });
+          }
+        }, 0); // Small delay to ensure elements are rendered
       }
     },
-    { scope: "#MenuNav", dependencies: [isOpen] }
+    { dependencies: [isOpen] }
   );
 
   useEffect(() => {
@@ -97,7 +110,7 @@ export default function DrawerNav({ ...props }: Props) {
   return (
     <>
       <IconButton
-        icon={<Icon as={RiMenuLine} fontSize={20} />}
+        icon={<Icon as={List} fontSize={18} weight="bold" />}
         zIndex={99}
         onClick={onOpen}
         w={"40px !important"}
@@ -108,6 +121,7 @@ export default function DrawerNav({ ...props }: Props) {
 
       {isOpen && (
         <VStack
+          ref={menuContainerRef}
           id="MenuNav"
           w={"100vw"}
           h={"100vh"}
@@ -171,15 +185,15 @@ export default function DrawerNav({ ...props }: Props) {
                     ml={"auto"}
                     w={"100%"}
                     h={"50px"}
-                    fontSize={17}
                     className="btn-solid"
+                    fontSize={"18px !important"}
                   />
                 </HStack>
 
                 <Box className="initDrawerContent">
                   <IconButton
                     aria-label="close drawer button"
-                    icon={<Icon as={RiCloseLine} fontSize={24} />}
+                    icon={<Icon as={X} fontSize={22} />}
                     color={"s.500"}
                     className="btn-solid sm-clicky"
                     bg={"var(--divider)"}
@@ -196,7 +210,7 @@ export default function DrawerNav({ ...props }: Props) {
                 gap={3}
                 onClick={(e) => e.stopPropagation()}
               >
-                {navs[lang].map((nav, i) => (
+                {navs.map((nav, i) => (
                   <Box className="initDrawerContent" key={i}>
                     <HStack
                       as={Link}
@@ -204,23 +218,21 @@ export default function DrawerNav({ ...props }: Props) {
                       px={6}
                       pl={7}
                       borderRadius={"full"}
-                      bg={"var(--divider)"}
                       to={nav.link}
                       justify={"space-between"}
-                      _hover={{ bg: "var(--divider2)" }}
+                      className="btn-solid"
                       transition={"200ms"}
                     >
                       <Text
                         fontSize={24}
-                        fontWeight={600}
                         transition={"200ms"}
                         textAlign={"left"}
                         wordBreak={"break-word"}
                       >
-                        {nav.name}
+                        {nav.label[lang]}
                       </Text>
 
-                      <Icon as={RiArrowRightUpLine} fontSize={28} />
+                      <Icon as={ArrowUpRight} fontSize={28} />
                     </HStack>
                   </Box>
                 ))}
@@ -252,6 +264,7 @@ export default function DrawerNav({ ...props }: Props) {
                   w={"100%"}
                   h={"50px"}
                   px={6}
+                  colorScheme="ap"
                   className="btn-ap clicky"
                   as={Link}
                   to={"/contact"}
@@ -267,7 +280,7 @@ export default function DrawerNav({ ...props }: Props) {
                 opacity={0.5}
                 className="initDrawerContent"
               >
-                Copyright
+                {new Date().getFullYear()} © Your Company. All right reserved.
               </Text>
             </VStack>
           </VStack>

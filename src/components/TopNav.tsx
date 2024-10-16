@@ -90,11 +90,10 @@ export default function TopNav(props: any) {
                     to={nav.link}
                     key={i}
                     flexShrink={0}
-                    fontWeight={600}
                     className="btn-clear"
                     _hover={{ color: "p.500", transform: "translateY(-2px)" }}
                     transition={"200ms"}
-                    px={3}
+                    px={"12px !important"}
                     color={props?.color || "current"}
                   >
                     {nav.label[lang]}
